@@ -9,29 +9,27 @@ const connect = function() {
     port: 50541
   });
 
-  // interpret incoming data as text
+  // iInterpret incoming data as text
   conn.setEncoding('utf8');
 
-  // Print message to screen when connection is successfully established
+  // When connection is successfully established
   conn.on('connect', () => {
-    console.log('Successfully connected to game server!');
-    conn.write('Name: RZ!');
-
-    // setInterval(() => {
-    //   conn.write('Move: up');
-    // }, 100);
-    // setTimeout(() => conn.write('Move: up'), 1000);
-    // setTimeout(() => conn.write('Move: right'), 1050);
-    // setTimeout(() => conn.write('Move: up'), 1100);
-    // setTimeout(() => conn.write('Move: right'), 1150);
-  
+    console.log('Successfully connected to game server!'); // Print message to client screen
+    conn.write('Name: RZ!');                               // Write to server
   });
 
-  // Message from server (event handler to handle incoming data)
+  // Handle message from server (incoming data)
   conn.on('data', (data) => {
-    console.log(data);
+    console.log(data);          // Pritn message from server
   });
+
   return conn;
 };
 
 module.exports = {connect};
+
+// setInterval(() => conn.write('Move: up'), 100);
+// setTimeout(() => conn.write('Move: up'), 1000);
+// setTimeout(() => conn.write('Move: right'), 1050);
+// setTimeout(() => conn.write('Move: up'), 1100);
+// setTimeout(() => conn.write('Move: right'), 1150);
