@@ -18,15 +18,20 @@ const setupInput = function(conn) {
 };
 
 // "data" callback handler for stdin
-const handleUserInput = (data) => {
+const handleUserInput = (key) => {
   // Check for ctrl + c input to terminate the game
-  if (data === '\u0003') process.exit();
+  if (key === '\u0003') process.exit();
 
   // Send Movement Keys (WASD) to server
-  if (data === 'w') connection.write('Move: up');
-  if (data === 'a') connection.write('Move: left');
-  if (data === 's') connection.write('Move: down');
-  if (data === 'd') connection.write('Move: right');
+  if (key === 'w') connection.write('Move: up');
+  if (key === 'a') connection.write('Move: left');
+  if (key === 's') connection.write('Move: down');
+  if (key === 'd') connection.write('Move: right');
+
+  // Send messages to the server
+  if (key === 'h') connection.write('Say: hi! :)');
+  if (key === 'c') connection.write('Say: meow~');
+  if (key === 's') connection.write('Say: hisssss');
 };
 
 module.exports = {setupInput};
