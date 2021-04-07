@@ -1,3 +1,6 @@
+// Require
+const { MOVES, MESSAGES } = require('./constants');
+
 // Stores the active TCP connection object.
 let connection;
 
@@ -23,15 +26,17 @@ const handleUserInput = (key) => {
   if (key === '\u0003') process.exit();
 
   // Send Movement Keys (WASD) to server
-  if (key === 'w') connection.write('Move: up');
-  if (key === 'a') connection.write('Move: left');
-  if (key === 's') connection.write('Move: down');
-  if (key === 'd') connection.write('Move: right');
+  if (MOVES[key]) connection.write(`Move: ${MOVES[key]}`);
+  // if (key === 'w') connection.write('Move: up');
+  // if (key === 'a') connection.write('Move: left');
+  // if (key === 's') connection.write('Move: down');
+  // if (key === 'd') connection.write('Move: right');
 
   // Send messages to the server
-  if (key === 'h') connection.write('Say: hi! :)');
-  if (key === 'c') connection.write('Say: meow~');
-  if (key === 's') connection.write('Say: hisssss');
+  if (MESSAGES[key]) connection.write(`Say: ${MESSAGES[key]}`);
+  // if (key === 'h') connection.write('Say: HI! :)');
+  // if (key === 'm') connection.write('Say: meow~');
+  // if (key === 'z') connection.write('Say: ZzZzZzzzzz');
 };
 
 module.exports = {setupInput};
