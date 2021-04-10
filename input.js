@@ -8,7 +8,6 @@ let connection;
  * Setup User Interface
  * Specifically, so that we can handle user input via stdin
  */
-
 const setupInput = function(conn) {
   connection = conn;
 

@@ -1,5 +1,5 @@
-const IP = "135.23.222.131";  //'localhost';
-const PORT = 50542;           //50541;
+const IP = 'localhost'; // "135.23.222.131";
+const PORT = 50541;     // 50542;
 const MOVES = {w: 'up', a: 'left', s: 'down', d: 'right'};
 const MESSAGES = {
   h: 'HI!:)',

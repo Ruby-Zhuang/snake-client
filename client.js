@@ -10,18 +10,18 @@ const connect = function() {
     port: PORT
   });
 
-  // iInterpret incoming data as text
+  // Interpret incoming data as text
   conn.setEncoding('utf8');
 
   // When connection is successfully established
   conn.on('connect', () => {
-    console.log('Successfully connected to game server!'); // Print message to client screen
-    conn.write('Name: RZ');                               // Write to server
+    console.log('Successfully connected to game server!');  // Print message to client screen
+    conn.write('Name: RZ');                                 // Write to server
   });
 
   // Handle message from server (incoming data)
   conn.on('data', (data) => {
-    console.log(data);          // Pritn message from server
+    console.log(data);          // Print message from server
   });
 
   return conn;
